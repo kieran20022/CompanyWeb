@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import FadeIn from "./FadeIn";
+import Particles from "./Particles";
 
 export default function CTA() {
   return (
@@ -7,11 +8,15 @@ export default function CTA() {
       <div className="mx-auto max-w-6xl px-6">
         <FadeIn>
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 px-8 py-16 text-center md:px-16 md:py-20">
-            {/* Decorative circles */}
-            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/5" />
-            <div className="absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-white/5" />
+            {/* Particle background */}
+            <Particles
+              quantity={60}
+              color="255, 255, 255"
+              size={1.4}
+              speed={0.2}
+            />
 
-            <div className="relative">
+            <div className="relative z-10">
               <h2 className="text-3xl font-bold text-white sm:text-4xl">
                 Ready to grow your business online?
               </h2>

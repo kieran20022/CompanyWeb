@@ -67,17 +67,17 @@ export default function Services() {
           </div>
         </FadeIn>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-rows-[auto] gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
-            <FadeIn key={service.title} delay={i * 0.08}>
-              <div className="group relative rounded-xl border border-gray-100 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-600/5 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-blue-900 dark:hover:shadow-blue-500/5">
-                <div className="mb-5 inline-flex rounded-lg bg-blue-50 p-3 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white dark:bg-blue-950 dark:text-blue-400 dark:group-hover:bg-blue-600 dark:group-hover:text-white">
+            <FadeIn key={service.title} delay={i * 0.08} className="flex">
+              <div className="group flex flex-1 flex-col rounded-xl border border-gray-100 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-600/5 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-blue-900 dark:hover:shadow-blue-500/5">
+                <div className="mb-5 inline-flex self-start rounded-lg bg-blue-50 p-3 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white dark:bg-blue-950 dark:text-blue-400 dark:group-hover:bg-blue-600 dark:group-hover:text-white">
                   <service.icon size={24} />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                   {service.title}
                 </h3>
-                <p className="mt-2 leading-relaxed text-gray-500 dark:text-gray-400">
+                <p className="mt-2 flex-1 leading-relaxed text-gray-500 dark:text-gray-400">
                   {service.description}
                 </p>
               </div>

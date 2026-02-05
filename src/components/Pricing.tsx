@@ -1,10 +1,10 @@
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import FadeIn from "./FadeIn";
 
 const plans = [
   {
     name: "Starter",
-    price: "$1,499",
+    from: "300",
     description: "Perfect for new businesses that need a clean online presence.",
     features: [
       "Up to 5 pages",
@@ -14,12 +14,11 @@ const plans = [
       "1 round of revisions",
       "2 weeks delivery",
     ],
-    cta: "Get Started",
     highlighted: false,
   },
   {
     name: "Professional",
-    price: "$2,999",
+    from: "800",
     description:
       "For growing businesses that need more functionality and polish.",
     features: [
@@ -32,12 +31,11 @@ const plans = [
       "3 rounds of revisions",
       "Priority support",
     ],
-    cta: "Get Started",
     highlighted: true,
   },
   {
     name: "Commerce",
-    price: "$4,999",
+    from: "1,500",
     description: "For businesses ready to sell online with a full storefront.",
     features: [
       "Full e-commerce store",
@@ -49,7 +47,6 @@ const plans = [
       "Unlimited revisions",
       "Ongoing support",
     ],
-    cta: "Get Started",
     highlighted: false,
   },
 ];
@@ -67,17 +64,17 @@ export default function Pricing() {
               Transparent pricing, no surprises
             </h2>
             <p className="mt-4 text-lg text-gray-500 dark:text-gray-400">
-              One-time payment. No hidden fees. Optional monthly plans for
-              hosting & maintenance available after launch.
+              Every project is unique. These starting prices give you an idea of
+              what to expect — get in touch for a personalized quote.
             </p>
           </div>
         </FadeIn>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">
           {plans.map((plan, i) => (
-            <FadeIn key={plan.name} delay={i * 0.1}>
+            <FadeIn key={plan.name} delay={i * 0.1} className="flex">
               <div
-                className={`relative flex h-full flex-col rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                className={`relative flex flex-1 flex-col rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                   plan.highlighted
                     ? "border-blue-600 shadow-lg ring-1 ring-blue-600 dark:border-blue-500 dark:ring-blue-500"
                     : "border-gray-200 hover:border-blue-200 hover:shadow-blue-600/5 dark:border-gray-800 dark:hover:border-blue-900"
@@ -96,11 +93,11 @@ export default function Pricing() {
                     {plan.description}
                   </p>
                   <p className="mt-6">
-                    <span className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      {plan.price}
+                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                      from{" "}
                     </span>
-                    <span className="ml-1 text-sm text-gray-500 dark:text-gray-400">
-                      one-time
+                    <span className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      ${plan.from}
                     </span>
                   </p>
                 </div>
@@ -122,13 +119,17 @@ export default function Pricing() {
 
                 <a
                   href="#"
-                  className={`mt-8 block rounded-lg py-3 text-center text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
+                  className={`group mt-8 flex items-center justify-center gap-2 rounded-lg py-3 text-center text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
                     plan.highlighted
                       ? "bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/25"
                       : "bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
                   }`}
                 >
-                  {plan.cta}
+                  Contact for Your Price
+                  <ArrowRight
+                    size={14}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5"
+                  />
                 </a>
               </div>
             </FadeIn>
