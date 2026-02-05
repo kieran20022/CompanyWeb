@@ -3,7 +3,7 @@ const footerLinks = {
     { label: "Website Design", href: "#services" },
     { label: "E-Commerce", href: "#services" },
     { label: "SEO", href: "#services" },
-    { label: "Branding", href: "#services" },
+    { label: "CRM & Integrations", href: "#services" },
   ],
   Company: [
     { label: "About", href: "#" },
@@ -21,17 +21,17 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-100 bg-white py-16">
+    <footer className="border-t border-gray-100 bg-white py-16 dark:border-gray-800 dark:bg-gray-950">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-12 md:grid-cols-4">
           <div>
             <a
               href="#"
-              className="text-xl font-bold tracking-tight text-gray-900"
+              className="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
             >
-              Bright<span className="text-blue-600">Web</span>
+              Bright<span className="text-blue-600 dark:text-blue-400">Web</span>
             </a>
-            <p className="mt-4 text-sm leading-relaxed text-gray-500">
+            <p className="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
               Professional websites for small businesses. Fast, affordable, and
               built to grow with you.
             </p>
@@ -39,13 +39,15 @@ export default function Footer() {
 
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading}>
-              <h4 className="text-sm font-semibold text-gray-900">{heading}</h4>
+              <h4 className="text-sm font-semibold text-gray-900 dark:text-white">
+                {heading}
+              </h4>
               <ul className="mt-4 space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-gray-500 transition-colors hover:text-gray-700"
+                      className="text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
                     >
                       {link.label}
                     </a>
@@ -56,26 +58,26 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-100 pt-8 md:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-100 pt-8 dark:border-gray-800 md:flex-row">
           <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} BrightWeb. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a
               href="#"
-              className="text-sm text-gray-400 transition-colors hover:text-gray-600"
+              className="text-sm text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-200"
             >
               Twitter
             </a>
             <a
               href="#"
-              className="text-sm text-gray-400 transition-colors hover:text-gray-600"
+              className="text-sm text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-200"
             >
               LinkedIn
             </a>
             <a
               href="#"
-              className="text-sm text-gray-400 transition-colors hover:text-gray-600"
+              className="text-sm text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-200"
             >
               Instagram
             </a>

@@ -3,7 +3,7 @@ import FadeIn from "./FadeIn";
 
 export default function CTA() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-gray-50 py-20 dark:bg-gray-900 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <FadeIn>
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 px-8 py-16 text-center md:px-16 md:py-20">
@@ -23,14 +23,17 @@ export default function CTA() {
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-blue-700 shadow-lg transition-all hover:bg-blue-50"
+                  className="group inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-blue-700 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50 hover:shadow-xl"
                 >
                   Book Free Consultation
-                  <ArrowRight size={16} />
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5"
+                  />
                 </a>
                 <a
                   href="#pricing"
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10"
                 >
                   View Pricing
                 </a>

@@ -1,20 +1,20 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import DotPattern from "./DotPattern";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-32 pb-20 md:pt-40 md:pb-28">
-      {/* Subtle dot grid background */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
+    <section className="relative overflow-hidden bg-white pt-32 pb-20 dark:bg-gray-950 md:pt-40 md:pb-28">
+      {/* Dot pattern with radial glow mask */}
+      <DotPattern
+        width={24}
+        height={24}
+        cr={1.2}
+        className="[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]"
       />
 
-      {/* Soft gradient accent */}
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-blue-100/60 blur-3xl" />
+      {/* Soft gradient glow accent */}
+      <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-900/30" />
 
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <motion.div
@@ -22,25 +22,25 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="mb-6 inline-block rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-700">
+          <span className="mb-6 inline-block rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-700 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-400">
             Professional websites for small businesses
           </span>
         </motion.div>
 
         <motion.h1
-          className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
+          className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
         >
           A website that works{" "}
-          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400">
             as hard as you do
           </span>
         </motion.h1>
 
         <motion.p
-          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-500"
+          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-500 dark:text-gray-400"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
@@ -58,28 +58,21 @@ export default function Hero() {
         >
           <a
             href="#pricing"
-            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30"
+            className="group inline-flex items-center gap-2 rounded-lg bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/40"
           >
             See Plans & Pricing
-            <ArrowRight size={16} />
+            <ArrowRight
+              size={16}
+              className="transition-transform duration-300 group-hover:translate-x-0.5"
+            />
           </a>
           <a
             href="#how-it-works"
-            className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50"
+            className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-800"
           >
             How It Works
           </a>
         </motion.div>
-
-        {/* Trust indicator */}
-        <motion.p
-          className="mt-10 text-sm text-gray-400"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          Trusted by 500+ small businesses across the country
-        </motion.p>
       </div>
     </section>
   );
