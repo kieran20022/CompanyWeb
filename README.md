@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# Company Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Testing for creating a website company - built with modern web technologies.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Vite 7.2.4** - Lightning-fast build tool and dev server
+- **React 19.2.0** - Modern UI library with TypeScript support
+- **TypeScript 5.9.3** - Type-safe development
+- **Tailwind CSS 4.1.18** - Utility-first CSS framework
+- **lucide-react 0.563.0** - Beautiful, customizable icon library
 
-## React Compiler
+## 📦 Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js (version 18 or higher recommended)
+- npm or yarn
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Install dependencies
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Available Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `npm run dev` - Start development server at http://localhost:5173
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint to check code quality
+- `npm run preview` - Preview production build locally
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🎨 Features
+
+The demo application showcases:
+
+- ✅ Responsive grid layout
+- ✅ Modern gradient backgrounds
+- ✅ Beautiful icons from lucide-react
+- ✅ Tailwind CSS utility classes
+- ✅ Interactive React components
+- ✅ TypeScript type safety
+- ✅ Hot Module Replacement (HMR)
+
+## 🛠️ Development
+
+The project uses:
+
+- ESLint for code quality
+- TypeScript for type checking
+- PostCSS with Tailwind CSS for styling
+- Vite for fast builds and HMR
+
+## 📝 Project Structure
+
+```
+company-web/
+├── src/
+│   ├── App.tsx         # Main application component
+│   ├── main.tsx        # Application entry point
+│   └── index.css       # Tailwind CSS imports
+├── public/             # Static assets
+├── package.json        # Dependencies and scripts
+├── tsconfig.json       # TypeScript configuration
+├── vite.config.ts      # Vite configuration
+└── postcss.config.js   # PostCSS/Tailwind configuration
 ```
