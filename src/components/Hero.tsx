@@ -1,6 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import DotPattern from "./DotPattern";
+import LightRays from "./LightRays";
 
 export default function Hero() {
   return (
@@ -13,8 +15,8 @@ export default function Hero() {
         className="[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]"
       />
 
-      {/* Soft gradient glow accent */}
-      <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-900/30" />
+      {/* Animated light rays */}
+      <LightRays />
 
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <motion.div
@@ -56,16 +58,16 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
         >
-          <a
-            href="#pricing"
+          <Link
+            to="/contact"
             className="group inline-flex items-center gap-2 rounded-lg bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/40"
           >
-            See Plans & Pricing
+            Get a Free Quote
             <ArrowRight
               size={16}
               className="transition-transform duration-300 group-hover:translate-x-0.5"
             />
-          </a>
+          </Link>
           <a
             href="#how-it-works"
             className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-800"

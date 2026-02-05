@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import FadeIn from "./FadeIn";
 import Particles from "./Particles";
 
@@ -26,8 +27,8 @@ export default function CTA() {
                 can build.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a
-                  href="#"
+                <Link
+                  to="/contact"
                   className="group inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-sm font-semibold text-blue-700 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50 hover:shadow-xl"
                 >
                   Book Free Consultation
@@ -35,9 +36,9 @@ export default function CTA() {
                     size={16}
                     className="transition-transform duration-300 group-hover:translate-x-0.5"
                   />
-                </a>
+                </Link>
                 <a
-                  href="#pricing"
+                  href="/#pricing"
                   className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10"
                 >
                   View Pricing

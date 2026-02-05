@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
+
 const footerLinks = {
   Services: [
-    { label: "Website Design", href: "#services" },
-    { label: "E-Commerce", href: "#services" },
-    { label: "SEO", href: "#services" },
-    { label: "CRM & Integrations", href: "#services" },
+    { label: "Website Design", href: "/#services" },
+    { label: "E-Commerce", href: "/#services" },
+    { label: "SEO", href: "/#services" },
+    { label: "CRM & Integrations", href: "/#services" },
   ],
   Company: [
     { label: "About", href: "#" },
     { label: "Blog", href: "#" },
     { label: "Careers", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "Contact", href: "/contact", isRoute: true },
   ],
   Support: [
     { label: "Help Center", href: "#" },
@@ -25,12 +27,12 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-12 md:grid-cols-4">
           <div>
-            <a
-              href="#"
+            <Link
+              to="/"
               className="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
             >
               Bright<span className="text-blue-600 dark:text-blue-400">Web</span>
-            </a>
+            </Link>
             <p className="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
               Professional websites for small businesses. Fast, affordable, and
               built to grow with you.
@@ -45,12 +47,21 @@ export default function Footer() {
               <ul className="mt-4 space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                    >
-                      {link.label}
-                    </a>
+                    {"isRoute" in link && link.isRoute ? (
+                      <Link
+                        to={link.href}
+                        className="text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
