@@ -12,7 +12,7 @@ export default function Hero() {
         width={24}
         height={24}
         cr={1.2}
-        className="[mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]"
+        className="mask-[radial-gradient(ellipse_at_center,white,transparent_70%)]"
       />
 
       {/* Animated light rays */}
@@ -25,7 +25,7 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <span className="mb-6 inline-block rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-700 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-400">
-            Professional websites for small businesses
+            A professional website for your business
           </span>
         </motion.div>
 
@@ -36,7 +36,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
         >
           A website that works{" "}
-          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400">
+          <span className="bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400">
             as hard as you do
           </span>
         </motion.h1>
