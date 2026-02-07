@@ -3,86 +3,120 @@ import {
   ShoppingCart,
   Search,
   Smartphone,
-  Link,
+  Link as LinkIcon,
   BarChart3,
+  ArrowUpRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import FadeIn from "./FadeIn";
 
 const services = [
   {
     icon: Globe,
+    number: "01",
     title: "Custom Website Design",
     description:
-      "A unique, hand-crafted design that reflects your brand and sets you apart from cookie-cutter templates.",
+      "Hand-crafted designs built from scratch that capture your brand identity and convert visitors into customers.",
   },
   {
     icon: ShoppingCart,
-    title: "E-Commerce",
+    number: "02",
+    title: "E-Commerce Solutions",
     description:
-      "Sell products online with a secure, easy-to-manage store that integrates with your payment provider.",
+      "Secure online stores with seamless checkout flows, inventory management, and payment integrations.",
   },
   {
     icon: Search,
+    number: "03",
     title: "SEO Optimization",
     description:
-      "Built-in search engine optimization so your customers can actually find you on Google.",
+      "Built-in search engine optimization so your ideal customers find you first on Google.",
   },
   {
     icon: Smartphone,
+    number: "04",
     title: "Mobile-First Design",
     description:
-      "Every site we build looks and works perfectly on phones, tablets, and desktops.",
+      "Responsive sites that look stunning and perform flawlessly on every screen size.",
   },
   {
-    icon: Link,
+    icon: LinkIcon,
+    number: "05",
     title: "CRM & Integrations",
     description:
-      "Connect your website to CRMs like HubSpot or Salesforce, email marketing tools, booking systems, and more — so everything works together.",
+      "Connect your site to HubSpot, Salesforce, booking tools, email marketing — all working together.",
   },
   {
     icon: BarChart3,
+    number: "06",
     title: "Analytics & Reporting",
     description:
-      "Know exactly who visits your site and how they interact with it, with clear monthly reports.",
+      "Track visitor behavior and measure results with clear, actionable monthly reports.",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="bg-white py-20 dark:bg-gray-950 md:py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <FadeIn>
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-              Services
-            </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-              Everything you need to succeed online
-            </h2>
-            <p className="mt-4 text-lg text-gray-500 dark:text-gray-400">
-              From design to launch and beyond — including CRM connections,
-              third-party integrations, and ongoing support — we handle every
-              detail so you can focus on running your business.
-            </p>
-          </div>
-        </FadeIn>
-
-        <div className="mt-16 grid grid-rows-[auto] gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
-            <FadeIn key={service.title} delay={i * 0.08} className="flex">
-              <div className="group flex flex-1 flex-col rounded-xl border border-gray-100 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-600/5 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-blue-900 dark:hover:shadow-blue-500/5">
-                <div className="mb-5 inline-flex self-start rounded-lg bg-blue-50 p-3 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white dark:bg-blue-950 dark:text-blue-400 dark:group-hover:bg-blue-600 dark:group-hover:text-white">
-                  <service.icon size={24} />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  {service.title}
-                </h3>
-                <p className="mt-2 flex-1 leading-relaxed text-gray-500 dark:text-gray-400">
-                  {service.description}
-                </p>
-              </div>
+    <section
+      id="services"
+      className="noise-bg relative bg-[var(--color-surface)] py-24 md:py-32"
+    >
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid gap-16 lg:grid-cols-12">
+          {/* Left heading — sticky on desktop */}
+          <div className="lg:col-span-4">
+            <FadeIn>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-amber)]">
+                What We Do
+              </span>
+              <h2 className="mt-4 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+                Everything you need to{" "}
+                <span className="text-gradient">succeed online</span>
+              </h2>
+              <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
+                From design to launch and beyond — we handle every detail so you
+                can focus on running your business.
+              </p>
+              <Link
+                to="/services"
+                className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-amber)] transition-colors hover:text-[var(--color-amber-light)]"
+              >
+                Explore all services
+                <ArrowUpRight
+                  size={14}
+                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
+              </Link>
             </FadeIn>
-          ))}
+          </div>
+
+          {/* Right grid */}
+          <div className="lg:col-span-8">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {services.map((service, i) => (
+                <FadeIn key={service.title} delay={i * 0.06}>
+                  <div className="h-full group relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 transition-all duration-500 hover:border-[var(--color-amber)]/20 hover:bg-[var(--color-surface-hover)]">
+                    {/* Number watermark */}
+                    <span className="pointer-events-none absolute -right-2 -top-4 font-display text-[80px] font-800 leading-none text-white/[0.02] transition-all duration-500 group-hover:text-[var(--color-amber)]/[0.06]">
+                      {service.number}
+                    </span>
+
+                    <div className="relative z-10">
+                      <div className="mb-4 inline-flex rounded-xl bg-[var(--color-amber-glow)] p-2.5 text-[var(--color-amber)] transition-all duration-300 group-hover:bg-[var(--color-amber)]/20">
+                        <service.icon size={20} strokeWidth={1.5} />
+                      </div>
+                      <h3 className="font-display text-base font-bold text-[var(--color-text-primary)]">
+                        {service.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-muted)]">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

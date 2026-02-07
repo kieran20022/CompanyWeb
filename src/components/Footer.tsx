@@ -1,63 +1,76 @@
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 const footerLinks = {
   Services: [
-    { label: "Website Design", href: "/#services" },
-    { label: "E-Commerce", href: "/#services" },
-    { label: "SEO", href: "/#services" },
-    { label: "CRM & Integrations", href: "/#services" },
+    { label: "Website Design", href: "/services" },
+    { label: "E-Commerce", href: "/services" },
+    { label: "SEO Optimization", href: "/services" },
+    { label: "CRM & Integrations", href: "/services" },
   ],
   Company: [
-    { label: "About", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Contact", href: "/contact", isRoute: true },
+    { label: "About", href: "/about" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Contact", href: "/contact" },
   ],
-  Support: [
-    { label: "Help Center", href: "#" },
-    { label: "Terms of Service", href: "#" },
+  Resources: [
+    { label: "Pricing", href: "/pricing" },
+    { label: "How It Works", href: "/#how-it-works" },
     { label: "Privacy Policy", href: "#" },
-    { label: "Status", href: "#" },
+    { label: "Terms of Service", href: "#" },
   ],
 };
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-100 bg-white py-16 dark:border-gray-800 dark:bg-gray-950">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid gap-12 md:grid-cols-4">
-          <div>
+    <footer className="border-t border-[var(--color-border)] bg-[var(--color-midnight)]">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
+          {/* Brand column */}
+          <div className="lg:col-span-2">
             <Link
               to="/"
-              className="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+              className="font-display text-xl font-bold tracking-tight"
             >
-              Bright<span className="text-blue-600 dark:text-blue-400">Web</span>
+              Bright<span className="text-gradient">Web</span>
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-              Professional websites for small businesses. Fast, affordable, and
-              built to grow with you.
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-text-muted)]">
+              Professional websites for small businesses. Custom-designed, fast,
+              and built to grow with you.
             </p>
+            <Link
+              to="/contact"
+              className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-amber)] transition-colors hover:text-[var(--color-amber-light)]"
+            >
+              Start a project
+              <ArrowUpRight
+                size={14}
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </Link>
           </div>
 
+          {/* Link columns */}
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading}>
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-white">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-text-secondary)]">
                 {heading}
               </h4>
               <ul className="mt-4 space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    {"isRoute" in link && link.isRoute ? (
+                    {link.href.startsWith("/") && !link.href.startsWith("/#") ? (
                       <Link
                         to={link.href}
-                        className="text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                        className="text-sm text-[var(--color-text-muted)] transition-colors duration-200 hover:text-[var(--color-text-primary)]"
                       >
                         {link.label}
                       </Link>
                     ) : (
                       <a
                         href={link.href}
-                        className="text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                        className="text-sm text-[var(--color-text-muted)] transition-colors duration-200 hover:text-[var(--color-text-primary)]"
                       >
                         {link.label}
                       </a>
@@ -69,29 +82,21 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-100 pt-8 dark:border-gray-800 md:flex-row">
-          <p className="text-sm text-gray-400">
+        {/* Bottom bar */}
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[var(--color-border)] pt-8 md:flex-row">
+          <p className="text-xs text-[var(--color-text-muted)]">
             &copy; {new Date().getFullYear()} BrightWeb. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a
-              href="#"
-              className="text-sm text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-200"
-            >
-              Twitter
-            </a>
-            <a
-              href="#"
-              className="text-sm text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-200"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="#"
-              className="text-sm text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-200"
-            >
-              Instagram
-            </a>
+            {["Twitter", "LinkedIn", "Instagram"].map((social) => (
+              <a
+                key={social}
+                href="#"
+                className="text-xs text-[var(--color-text-muted)] transition-colors duration-200 hover:text-[var(--color-amber)]"
+              >
+                {social}
+              </a>
+            ))}
           </div>
         </div>
       </div>

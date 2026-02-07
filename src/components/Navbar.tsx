@@ -1,110 +1,141 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Services", href: "/#services" },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "Contact", href: "/contact" },
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  function handleNav(href: string) {
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
     setMobileOpen(false);
-    // If we're on the home page and the link is a hash, scroll to it
-    if (href.startsWith("/#") && location.pathname === "/") {
-      const el = document.querySelector(href.replace("/", ""));
-      el?.scrollIntoView({ behavior: "smooth" });
-    }
-  }
+  }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/80">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link
-          to="/"
-          className="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
-        >
-          Bright<span className="text-blue-600 dark:text-blue-400">Web</span>
-        </Link>
+    <>
+      <nav
+        className={`fixed top-0 z-50 w-full transition-all duration-500 ${
+          scrolled
+            ? "border-b border-white/[0.06] bg-[var(--color-midnight)]/90 backdrop-blur-xl"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <Link to="/" className="font-display text-xl font-bold tracking-tight">
+            Bright<span className="text-gradient">Web</span>
+          </Link>
 
-        {/* Desktop links */}
-        <div className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) =>
-            link.href.startsWith("/#") ? (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => handleNav(link.href)}
-                className="text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-              >
-                {link.label}
-              </a>
-            ) : (
+          {/* Desktop links */}
+          <div className="hidden items-center gap-1 md:flex">
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                className={`relative px-4 py-2 text-[13px] font-medium tracking-wide uppercase transition-colors duration-200 ${
+                  location.pathname === link.href
+                    ? "text-[var(--color-amber)]"
+                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+                }`}
               >
                 {link.label}
+                {location.pathname === link.href && (
+                  <motion.div
+                    layoutId="nav-indicator"
+                    className="absolute bottom-0 left-4 right-4 h-px bg-[var(--color-amber)]"
+                    transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                  />
+                )}
               </Link>
-            ),
-          )}
-          <Link
-            to="/contact"
-            className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/25"
-          >
-            Get Started
-          </Link>
-        </div>
+            ))}
+          </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="text-gray-700 dark:text-gray-300 md:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+          <div className="hidden items-center gap-4 md:flex">
+            <Link
+              to="/contact"
+              className="group flex items-center gap-1.5 rounded-full border border-[var(--color-amber)] bg-[var(--color-amber)]/10 px-5 py-2 text-[13px] font-semibold tracking-wide text-[var(--color-amber)] transition-all duration-300 hover:bg-[var(--color-amber)] hover:text-[var(--color-midnight)]"
+            >
+              Start a Project
+              <ArrowUpRight
+                size={14}
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </Link>
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            className="relative z-50 text-[var(--color-text-primary)] md:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </nav>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="border-t border-gray-100 bg-white px-6 py-4 dark:border-gray-800 dark:bg-gray-950 md:hidden">
-          {navLinks.map((link) =>
-            link.href.startsWith("/#") ? (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => handleNav(link.href)}
-                className="block py-3 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="block py-3 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-              >
-                {link.label}
-              </Link>
-            ),
-          )}
-          <Link
-            to="/contact"
-            onClick={() => setMobileOpen(false)}
-            className="mt-2 block rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-[var(--color-midnight)] md:hidden"
           >
-            Get Started
-          </Link>
-        </div>
-      )}
-    </nav>
+            <div className="flex h-full flex-col justify-center px-8">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.08, duration: 0.4 }}
+                >
+                  <Link
+                    to={link.href}
+                    className={`block border-b border-[var(--color-border)] py-5 font-display text-3xl font-bold transition-colors ${
+                      location.pathname === link.href
+                        ? "text-[var(--color-amber)]"
+                        : "text-[var(--color-text-primary)] hover:text-[var(--color-amber)]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
+                className="mt-8"
+              >
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 rounded-full border border-[var(--color-amber)] bg-[var(--color-amber)] px-8 py-3.5 font-semibold text-[var(--color-midnight)] transition-all duration-300"
+                >
+                  Start a Project
+                  <ArrowUpRight size={16} />
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
