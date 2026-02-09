@@ -1,33 +1,35 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-
-const footerLinks = {
-  Services: [
-    { label: "Website Design", href: "/services" },
-    { label: "E-Commerce", href: "/services" },
-    { label: "SEO Optimization", href: "/services" },
-    { label: "CRM & Integrations", href: "/services" },
-  ],
-  Company: [
-    { label: "About", href: "/about" },
-    { label: "Portfolio", href: "/portfolio" },
-    { label: "FAQ", href: "/faq" },
-    { label: "Contact", href: "/contact" },
-  ],
-  Resources: [
-    { label: "Pricing", href: "/pricing" },
-    { label: "How It Works", href: "/#how-it-works" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-  ],
-};
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const footerLinks = {
+    [t("footer.servicesHeading")]: [
+      { label: t("footer.websiteDesign"), href: "/services" },
+      { label: t("footer.ecommerce"), href: "/services" },
+      { label: t("footer.seoOptimization"), href: "/services" },
+      { label: t("footer.crmIntegrations"), href: "/services" },
+    ],
+    [t("footer.companyHeading")]: [
+      { label: t("footer.about"), href: "/about" },
+      { label: t("footer.portfolio"), href: "/portfolio" },
+      { label: t("footer.faq"), href: "/faq" },
+      { label: t("footer.contact"), href: "/contact" },
+    ],
+    [t("footer.resourcesHeading")]: [
+      { label: t("footer.pricingLink"), href: "/pricing" },
+      { label: t("footer.howItWorks"), href: "/#how-it-works" },
+      { label: t("footer.privacyPolicy"), href: "#" },
+      { label: t("footer.termsOfService"), href: "#" },
+    ],
+  };
+
   return (
     <footer className="border-t border-[var(--color-border)] bg-[var(--color-midnight)]">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
-          {/* Brand column */}
           <div className="lg:col-span-2">
             <Link
               to="/"
@@ -36,14 +38,13 @@ export default function Footer() {
               Bright<span className="text-gradient">Web</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-text-muted)]">
-              Professional websites for small businesses. Custom-designed, fast,
-              and built to grow with you.
+              {t("footer.description")}
             </p>
             <Link
               to="/contact"
               className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-amber)] transition-colors hover:text-[var(--color-amber-light)]"
             >
-              Start a project
+              {t("footer.startProject")}
               <ArrowUpRight
                 size={14}
                 className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -51,7 +52,6 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Link columns */}
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading}>
               <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--color-text-secondary)]">
@@ -82,10 +82,9 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[var(--color-border)] pt-8 md:flex-row">
           <p className="text-xs text-[var(--color-text-muted)]">
-            &copy; {new Date().getFullYear()} BrightWeb. All rights reserved.
+            &copy; {new Date().getFullYear()} BrightWeb. {t("footer.copyright")}
           </p>
           <div className="flex gap-6">
             {["Twitter", "LinkedIn", "Instagram"].map((social) => (

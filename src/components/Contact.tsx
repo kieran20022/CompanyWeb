@@ -3,25 +3,27 @@ import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Send, CheckCircle, Mail, Phone, MapPin } from "lucide-react";
 import FadeIn from "./FadeIn";
-
-const contactMethods = [
-  { value: "", label: "Select preferred contact method" },
-  { value: "email", label: "Email" },
-  { value: "phone", label: "Phone" },
-  { value: "in-person", label: "In Person" },
-];
-
-const contactInfo = [
-  { icon: Mail, label: "Email us", value: "hello@brightweb.com" },
-  { icon: Phone, label: "Call us", value: "+1 (555) 123-4567" },
-  { icon: MapPin, label: "Visit us", value: "Remote-first, worldwide" },
-];
-
-const inputClasses =
-  "mt-1.5 block w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] transition-all duration-200 focus:border-[var(--color-amber)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--color-amber)]/10";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const { t } = useLanguage();
+
+  const contactInfo = [
+    { icon: Mail, label: t("contact.emailUs"), value: "hello@brightweb.com" },
+    { icon: Phone, label: t("contact.callUs"), value: "+1 (555) 123-4567" },
+    { icon: MapPin, label: t("contact.visitUs"), value: t("contact.remoteFirst") },
+  ];
+
+  const contactMethods = [
+    { value: "", label: t("contact.selectMethod") },
+    { value: "email", label: t("contact.email") },
+    { value: "phone", label: t("contact.phone") },
+    { value: "in-person", label: t("contact.inPerson") },
+  ];
+
+  const inputClasses =
+    "mt-1.5 block w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] transition-all duration-200 focus:border-[var(--color-amber)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--color-amber)]/10";
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -30,7 +32,6 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-[var(--color-midnight)]">
-      {/* Header */}
       <div className="noise-bg relative border-b border-[var(--color-border)] bg-[var(--color-surface)] pb-12 pt-32 md:pb-16 md:pt-36">
         <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8">
           <Link
@@ -41,24 +42,21 @@ export default function Contact() {
               size={14}
               className="transition-transform duration-200 group-hover:-translate-x-0.5"
             />
-            Back to home
+            {t("contact.backHome")}
           </Link>
           <FadeIn>
             <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
-              Get in <span className="text-gradient">touch</span>
+              {t("contact.heading")}<span className="text-gradient">{t("contact.headingHighlight")}</span>
             </h1>
             <p className="mt-4 max-w-lg text-lg text-[var(--color-text-secondary)]">
-              Tell us about your business and what you need. We'll get back to
-              you within 24 hours with a personalized proposal.
+              {t("contact.description")}
             </p>
           </FadeIn>
         </div>
       </div>
 
-      {/* Content */}
       <div className="mx-auto max-w-5xl px-6 py-12 md:py-16 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12">
-          {/* Contact info sidebar */}
           <div className="lg:col-span-4">
             <FadeIn>
               <div className="space-y-6">
@@ -84,7 +82,6 @@ export default function Contact() {
             </FadeIn>
           </div>
 
-          {/* Form */}
           <div className="lg:col-span-8">
             {submitted ? (
               <FadeIn direction="none">
@@ -94,17 +91,16 @@ export default function Contact() {
                     className="mx-auto text-green-400"
                   />
                   <h2 className="mt-4 font-display text-2xl font-bold">
-                    Message sent!
+                    {t("contact.successHeading")}
                   </h2>
                   <p className="mt-2 text-[var(--color-text-secondary)]">
-                    Thanks for reaching out. We'll review your message and get
-                    back to you within 24 hours.
+                    {t("contact.successDescription")}
                   </p>
                   <Link
                     to="/"
                     className="mt-6 inline-block rounded-full bg-[var(--color-amber)] px-6 py-3 text-sm font-bold text-[var(--color-midnight)] transition-all duration-300 hover:scale-[1.02]"
                   >
-                    Back to Home
+                    {t("contact.backToHome")}
                   </Link>
                 </div>
               </FadeIn>
@@ -120,7 +116,7 @@ export default function Contact() {
                         htmlFor="email"
                         className="block text-sm font-medium text-[var(--color-text-secondary)]"
                       >
-                        Email address <span className="text-[var(--color-amber)]">*</span>
+                        {t("contact.emailLabel")} <span className="text-[var(--color-amber)]">*</span>
                       </label>
                       <input
                         type="email"
@@ -136,7 +132,7 @@ export default function Contact() {
                         htmlFor="phone"
                         className="block text-sm font-medium text-[var(--color-text-secondary)]"
                       >
-                        Phone number <span className="text-[var(--color-amber)]">*</span>
+                        {t("contact.phoneLabel")} <span className="text-[var(--color-amber)]">*</span>
                       </label>
                       <input
                         type="tel"
@@ -155,7 +151,7 @@ export default function Contact() {
                         htmlFor="company"
                         className="block text-sm font-medium text-[var(--color-text-secondary)]"
                       >
-                        Company name <span className="text-[var(--color-amber)]">*</span>
+                        {t("contact.companyLabel")} <span className="text-[var(--color-amber)]">*</span>
                       </label>
                       <input
                         type="text"
@@ -171,7 +167,7 @@ export default function Contact() {
                         htmlFor="contactMethod"
                         className="block text-sm font-medium text-[var(--color-text-secondary)]"
                       >
-                        Preferred contact{" "}
+                        {t("contact.preferredContact")}{" "}
                         <span className="text-[var(--color-amber)]">*</span>
                       </label>
                       <select
@@ -199,18 +195,17 @@ export default function Contact() {
                       htmlFor="message"
                       className="block text-sm font-medium text-[var(--color-text-secondary)]"
                     >
-                      Message <span className="text-[var(--color-amber)]">*</span>
+                      {t("contact.messageLabel")} <span className="text-[var(--color-amber)]">*</span>
                     </label>
                     <p className="mt-0.5 text-xs text-[var(--color-text-muted)]">
-                      Tell us about your business and the kind of website you
-                      need.
+                      {t("contact.messageHint")}
                     </p>
                     <textarea
                       id="message"
                       name="message"
                       required
                       rows={5}
-                      placeholder="Describe your project..."
+                      placeholder={t("contact.messagePlaceholder")}
                       className={inputClasses + " resize-none"}
                     />
                   </div>
@@ -219,7 +214,7 @@ export default function Contact() {
                     type="submit"
                     className="group inline-flex items-center gap-2 rounded-full bg-[var(--color-amber)] px-7 py-3.5 text-sm font-bold text-[var(--color-midnight)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(245,158,11,0.25)]"
                   >
-                    Send Message
+                    {t("contact.sendMessage")}
                     <Send
                       size={15}
                       className="transition-transform duration-300 group-hover:translate-x-0.5"

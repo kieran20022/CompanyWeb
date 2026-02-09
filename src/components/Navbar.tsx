@@ -2,19 +2,27 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../i18n/LanguageContext";
+import type { Language } from "../i18n/LanguageContext";
 
-const navLinks = [
-  { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/about" },
-  { label: "FAQ", href: "/faq" },
-];
+const flags: Record<Language, { emoji: string; label: string }> = {
+  nl: { emoji: "🇳🇱", label: "Nederlands" },
+  en: { emoji: "🇬🇧", label: "English" },
+};
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { label: t("nav.services"), href: "/services" },
+    { label: t("nav.portfolio"), href: "/portfolio" },
+    { label: t("nav.pricing"), href: "/pricing" },
+    { label: t("nav.about"), href: "/about" },
+    { label: t("nav.faq"), href: "/faq" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -26,17 +34,22 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [location.pathname]);
 
+  const otherLang: Language = lang === "nl" ? "en" : "nl";
+
   return (
     <>
       <nav
         className={`fixed top-0 z-50 w-full transition-all duration-500 ${
           scrolled
-            ? "border-b border-white/[0.06] bg-[var(--color-midnight)]/90 backdrop-blur-xl"
-            : "bg-transparent"
+            ? "border-b border-[var(--color-border)] bg-[var(--color-midnight)]/90 backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          <Link to="/" className="font-display text-xl font-bold tracking-tight">
+          <Link
+            to="/"
+            className="font-display text-xl font-bold tracking-tight"
+          >
             Bright<span className="text-gradient">Web</span>
           </Link>
 
@@ -64,12 +77,32 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden items-center gap-4 md:flex">
+          <div className="hidden items-center gap-3 md:flex">
+            {/* Language switcher - only visible at top */}
+            <AnimatePresence>
+              {!scrolled && (
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={() => setLang(otherLang)}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/50 text-sm transition-all duration-200 hover:border-[var(--color-amber)]/30 hover:bg-[var(--color-surface)]"
+                  title={`Switch to ${flags[otherLang].label}`}
+                  aria-label={`Switch to ${flags[otherLang].label}`}
+                >
+                  <span className="text-[15px] leading-none">
+                    {flags[otherLang].emoji}
+                  </span>
+                </motion.button>
+              )}
+            </AnimatePresence>
+
             <Link
               to="/contact"
               className="group flex items-center gap-1.5 rounded-full border border-[var(--color-amber)] bg-[var(--color-amber)]/10 px-5 py-2 text-[13px] font-semibold tracking-wide text-[var(--color-amber)] transition-all duration-300 hover:bg-[var(--color-amber)] hover:text-[var(--color-midnight)]"
             >
-              Start a Project
+              {t("nav.cta")}
               <ArrowUpRight
                 size={14}
                 className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -77,14 +110,35 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            className="relative z-50 text-[var(--color-text-primary)] md:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          {/* Mobile: language switch + toggle */}
+          <div className="flex items-center gap-3 md:hidden">
+            <AnimatePresence>
+              {!scrolled && !mobileOpen && (
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={() => setLang(otherLang)}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/50 text-sm transition-all duration-200 hover:border-[var(--color-amber)]/30"
+                  title={`Switch to ${flags[otherLang].label}`}
+                  aria-label={`Switch to ${flags[otherLang].label}`}
+                >
+                  <span className="text-[15px] leading-none">
+                    {flags[otherLang].emoji}
+                  </span>
+                </motion.button>
+              )}
+            </AnimatePresence>
+
+            <button
+              className="relative z-50 text-[var(--color-text-primary)]"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -128,7 +182,7 @@ export default function Navbar() {
                   to="/contact"
                   className="inline-flex items-center gap-2 rounded-full border border-[var(--color-amber)] bg-[var(--color-amber)] px-8 py-3.5 font-semibold text-[var(--color-midnight)] transition-all duration-300"
                 >
-                  Start a Project
+                  {t("nav.cta")}
                   <ArrowUpRight size={16} />
                 </Link>
               </motion.div>
