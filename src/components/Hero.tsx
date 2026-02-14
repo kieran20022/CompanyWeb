@@ -7,12 +7,6 @@ import { useLanguage } from "../i18n/LanguageContext";
 export default function Hero() {
   const { t } = useLanguage();
 
-  const stats = [
-    { number: "150+", label: t("hero.stat1") },
-    { number: "98%", label: t("hero.stat2") },
-    { number: "4.9", label: t("hero.stat3") },
-  ];
-
   return (
     <section className="noise-bg relative min-h-screen overflow-hidden bg-[var(--color-midnight)]">
       <AnimatedGrid />
@@ -23,17 +17,6 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 pt-24 pb-20 lg:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.25, 0.1, 0, 1] }}
-            >
-              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-amber)]/20 bg-[var(--color-amber-glow)] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[var(--color-amber)]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-amber)] animate-[pulse-glow_2s_ease-in-out_infinite]" />
-                {t("hero.badge")}
-              </span>
-            </motion.div>
-
             <motion.h1
               className="mt-8 font-display text-[clamp(2.5rem,6vw,5rem)] font-800 leading-[0.95] tracking-tight"
               initial={{ opacity: 0, y: 40 }}
@@ -117,41 +100,26 @@ export default function Hero() {
                 </div>
               </div>
 
-              <motion.div
-                className="absolute -bottom-4 -left-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] px-4 py-3 shadow-xl"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-500/10">
-                    <div className="h-2 w-2 rounded-full bg-green-400" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-[var(--color-text-primary)]">{t("hero.liveLabel")}</p>
-                    <p className="text-[10px] text-[var(--color-text-muted)]">PageSpeed: 98/100</p>
-                  </div>
-                </div>
-              </motion.div>
             </motion.div>
           </div>
         </div>
 
         <motion.div
-          className="mt-20 grid grid-cols-3 gap-8 border-t border-[var(--color-border)] pt-10 lg:mt-24"
+          className="mt-20 flex justify-center border-t border-[var(--color-border)] pt-10 lg:mt-24"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6, ease: [0.25, 0.1, 0, 1] }}
         >
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <p className="font-display text-3xl font-bold text-[var(--color-amber)] sm:text-4xl lg:text-5xl">
-                {stat.number}
-              </p>
-              <p className="mt-1 text-xs font-medium uppercase tracking-widest text-[var(--color-text-muted)] sm:text-sm">
-                {stat.label}
-              </p>
-            </div>
-          ))}
+          <Link
+            to="/contact"
+            className="group inline-flex items-center gap-2 rounded-full border-2 border-[var(--color-amber)] bg-[var(--color-amber)]/10 px-8 py-4 text-base font-bold text-[var(--color-amber)] transition-all duration-300 hover:bg-[var(--color-amber)] hover:text-[var(--color-midnight)] hover:shadow-[0_0_60px_rgba(245,158,11,0.3)]"
+          >
+            {t("hero.beTheFirst")}
+            <ArrowRight
+              size={18}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
         </motion.div>
       </div>
     </section>

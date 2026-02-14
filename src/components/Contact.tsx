@@ -1,7 +1,14 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Send, CheckCircle, Mail, Phone, MapPin } from "lucide-react";
+import {
+  ArrowLeft,
+  Send,
+  CheckCircle,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 import FadeIn from "./FadeIn";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -10,9 +17,8 @@ export default function Contact() {
   const { t } = useLanguage();
 
   const contactInfo = [
-    { icon: Mail, label: t("contact.emailUs"), value: "hello@brightweb.com" },
-    { icon: Phone, label: t("contact.callUs"), value: "+1 (555) 123-4567" },
-    { icon: MapPin, label: t("contact.visitUs"), value: t("contact.remoteFirst") },
+    { icon: Mail, label: t("contact.emailUs"), value: "kieran@bliksemit.nl" },
+    { icon: Phone, label: t("contact.callUs"), value: "06 - 48 65 18 09" },
   ];
 
   const contactMethods = [
@@ -46,7 +52,10 @@ export default function Contact() {
           </Link>
           <FadeIn>
             <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
-              {t("contact.heading")}<span className="text-gradient">{t("contact.headingHighlight")}</span>
+              {t("contact.heading")}
+              <span className="text-gradient">
+                {t("contact.headingHighlight")}
+              </span>
             </h1>
             <p className="mt-4 max-w-lg text-lg text-[var(--color-text-secondary)]">
               {t("contact.description")}
@@ -86,10 +95,7 @@ export default function Contact() {
             {submitted ? (
               <FadeIn direction="none">
                 <div className="rounded-2xl border border-green-500/20 bg-green-500/5 p-10 text-center">
-                  <CheckCircle
-                    size={48}
-                    className="mx-auto text-green-400"
-                  />
+                  <CheckCircle size={48} className="mx-auto text-green-400" />
                   <h2 className="mt-4 font-display text-2xl font-bold">
                     {t("contact.successHeading")}
                   </h2>
@@ -116,7 +122,8 @@ export default function Contact() {
                         htmlFor="email"
                         className="block text-sm font-medium text-[var(--color-text-secondary)]"
                       >
-                        {t("contact.emailLabel")} <span className="text-[var(--color-amber)]">*</span>
+                        {t("contact.emailLabel")}{" "}
+                        <span className="text-[var(--color-amber)]">*</span>
                       </label>
                       <input
                         type="email"
@@ -132,7 +139,8 @@ export default function Contact() {
                         htmlFor="phone"
                         className="block text-sm font-medium text-[var(--color-text-secondary)]"
                       >
-                        {t("contact.phoneLabel")} <span className="text-[var(--color-amber)]">*</span>
+                        {t("contact.phoneLabel")}{" "}
+                        <span className="text-[var(--color-amber)]">*</span>
                       </label>
                       <input
                         type="tel"
@@ -151,7 +159,8 @@ export default function Contact() {
                         htmlFor="company"
                         className="block text-sm font-medium text-[var(--color-text-secondary)]"
                       >
-                        {t("contact.companyLabel")} <span className="text-[var(--color-amber)]">*</span>
+                        {t("contact.companyLabel")}{" "}
+                        <span className="text-[var(--color-amber)]">*</span>
                       </label>
                       <input
                         type="text"
@@ -195,7 +204,8 @@ export default function Contact() {
                       htmlFor="message"
                       className="block text-sm font-medium text-[var(--color-text-secondary)]"
                     >
-                      {t("contact.messageLabel")} <span className="text-[var(--color-amber)]">*</span>
+                      {t("contact.messageLabel")}{" "}
+                      <span className="text-[var(--color-amber)]">*</span>
                     </label>
                     <p className="mt-0.5 text-xs text-[var(--color-text-muted)]">
                       {t("contact.messageHint")}

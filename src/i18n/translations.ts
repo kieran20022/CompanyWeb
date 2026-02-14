@@ -12,7 +12,7 @@ export const translations = {
 
     // ── Hero ──
     hero: {
-      badge: "Webdesign Bureau",
+      badge: "",
       heading1: "Wij bouwen websites",
       heading2: "die net zo hard",
       heading3: "werken als jij",
@@ -25,6 +25,7 @@ export const translations = {
       stat2: "Klanttevredenheid",
       stat3: "Gemiddelde Beoordeling",
       liveLabel: "Live & Geoptimaliseerd",
+      beTheFirst: "Wees de Eerste",
     },
 
     // ── Services (home) ──
@@ -42,9 +43,9 @@ export const translations = {
             "Handgemaakt ontwerp dat jouw merkidentiteit vastlegt en bezoekers omzet in klanten.",
         },
         {
-          title: "E-Commerce Oplossingen",
+          title: "Shopify Webshops",
           description:
-            "Veilige webshops met soepele checkout, voorraadbeheer en betaalintegraties.",
+            "Wij helpen je bij het opzetten en optimaliseren van jouw Shopify-webshop, van productpagina's tot checkout en thema-aanpassingen.",
         },
         {
           title: "SEO Optimalisatie",
@@ -57,7 +58,7 @@ export const translations = {
             "Responsieve websites die er prachtig uitzien en foutloos werken op elk schermformaat.",
         },
         {
-          title: "CRM & Integraties",
+          title: "Integraties & CRM",
           description:
             "Koppel je site aan HubSpot, Salesforce, boekingstools, e-mailmarketing — alles werkt samen.",
         },
@@ -142,7 +143,7 @@ export const translations = {
       websiteDesign: "Website Design",
       ecommerce: "E-Commerce",
       seoOptimization: "SEO Optimalisatie",
-      crmIntegrations: "CRM & Integraties",
+      crmIntegrations: "Integraties & CRM",
       about: "Over Ons",
       portfolio: "Portfolio",
       faq: "FAQ",
@@ -340,11 +341,11 @@ export const translations = {
       headingHighlight: "geweldige website",
       headingSuffix: " verdient",
       description:
-        "BrightWeb is opgericht met een simpel idee: kleine bedrijven hoeven niet te kiezen tussen kwaliteit en betaalbaarheid. Wij brengen agency-niveau design en ontwikkeling naar de bedrijven die het het hardst nodig hebben.",
+        "BliksemIT is opgericht met een simpel idee: kleine bedrijven hoeven niet te kiezen tussen kwaliteit en betaalbaarheid. Wij brengen agency-niveau design en ontwikkeling naar de bedrijven die het het hardst nodig hebben.",
       storyLabel: "Ons Verhaal",
       storyHeading: "Gebouwd door mensen die het MKB begrijpen",
       storyP1:
-        "We zijn BrightWeb gestart omdat we een gat in de markt zagen. MKB-eigenaren zaten vast tussen dure bureaus die duizenden euro's rekenden voor basale sites, of goedkope template-builders die er allemaal hetzelfde uitzagen.",
+        "We zijn BliksemIT gestart omdat we een gat in de markt zagen. MKB-eigenaren zaten vast tussen dure bureaus die duizenden euro's rekenden voor basale sites, of goedkope template-builders die er allemaal hetzelfde uitzagen.",
       storyP2:
         "We wisten dat het beter kon. Dus bouwden we een studio die het vakmanschap en de aandacht voor detail van een premium bureau combineert met prijzen die daadwerkelijk logisch zijn voor een groeiend bedrijf.",
       storyP3:
@@ -395,7 +396,7 @@ export const translations = {
       description:
         "Elk project vertelt een verhaal. Hier zijn enkele bedrijven die wij hebben geholpen met het opbouwen van een krachtige online aanwezigheid.",
       testimonial:
-        "\"BrightWeb heeft onze verouderde website omgetoverd tot een ",
+        "\"BliksemIT heeft onze verouderde website omgetoverd tot een ",
       testimonialHighlight: "lead-genererende machine",
       testimonialEnd:
         ". Professioneel, snel en ongelooflijk betaalbaar.\"",
@@ -709,7 +710,7 @@ export const translations = {
       description:
         "Vertel ons over je bedrijf en wat je nodig hebt. We nemen binnen 24 uur contact op met een persoonlijk voorstel.",
       emailUs: "E-mail ons",
-      callUs: "Bel ons",
+      callUs: "Whatsapp",
       visitUs: "Bezoek ons",
       remoteFirst: "Remote-first, wereldwijd",
       emailLabel: "E-mailadres",
@@ -744,7 +745,7 @@ export const translations = {
 
     // ── Hero ──
     hero: {
-      badge: "Web Design Agency",
+      badge: "",
       heading1: "We build websites",
       heading2: "that work as hard",
       heading3: "as you do",
@@ -757,6 +758,7 @@ export const translations = {
       stat2: "Client Satisfaction",
       stat3: "Average Rating",
       liveLabel: "Live & Optimized",
+      beTheFirst: "Be the First",
     },
 
     // ── Services (home) ──
@@ -774,9 +776,9 @@ export const translations = {
             "Hand-crafted designs built from scratch that capture your brand identity and convert visitors into customers.",
         },
         {
-          title: "E-Commerce Solutions",
+          title: "Shopify Store Setup",
           description:
-            "Secure online stores with seamless checkout flows, inventory management, and payment integrations.",
+            "We help you set up and optimize your Shopify store, from product pages to checkout and theme customization.",
         },
         {
           title: "SEO Optimization",
@@ -789,7 +791,7 @@ export const translations = {
             "Responsive sites that look stunning and perform flawlessly on every screen size.",
         },
         {
-          title: "CRM & Integrations",
+          title: "Integrations & CRM",
           description:
             "Connect your site to HubSpot, Salesforce, booking tools, email marketing \u2014 all working together.",
         },
@@ -874,7 +876,7 @@ export const translations = {
       websiteDesign: "Website Design",
       ecommerce: "E-Commerce",
       seoOptimization: "SEO Optimization",
-      crmIntegrations: "CRM & Integrations",
+      crmIntegrations: "Integrations & CRM",
       about: "About",
       portfolio: "Portfolio",
       faq: "FAQ",
@@ -1072,11 +1074,11 @@ export const translations = {
       headingHighlight: "great website",
       headingSuffix: "",
       description:
-        "BrightWeb was founded on a simple idea: small businesses shouldn't have to choose between quality and affordability. We bring agency-level design and development to businesses that need it most.",
+        "BliksemIT was founded on a simple idea: small businesses shouldn't have to choose between quality and affordability. We bring agency-level design and development to businesses that need it most.",
       storyLabel: "Our Story",
       storyHeading: "Built by people who get small business",
       storyP1:
-        "We started BrightWeb because we saw a gap in the market. Small business owners were stuck choosing between expensive agencies that charged thousands for basic sites, or cheap template builders that all looked the same.",
+        "We started BliksemIT because we saw a gap in the market. Small business owners were stuck choosing between expensive agencies that charged thousands for basic sites, or cheap template builders that all looked the same.",
       storyP2:
         "We knew there had to be a better way. So we built a studio that combines the craft and attention to detail of a premium agency with pricing that actually makes sense for a growing business.",
       storyP3:
@@ -1127,7 +1129,7 @@ export const translations = {
       description:
         "Every project tells a story. Here are some of the businesses we've helped establish a powerful online presence and grow.",
       testimonial:
-        "\"BrightWeb turned our outdated website into a ",
+        "\"BliksemIT turned our outdated website into a ",
       testimonialHighlight: "lead-generating machine",
       testimonialEnd:
         ". Professional, fast, and incredibly affordable.\"",
@@ -1441,7 +1443,7 @@ export const translations = {
       description:
         "Tell us about your business and what you need. We'll get back to you within 24 hours with a personalized proposal.",
       emailUs: "Email us",
-      callUs: "Call us",
+      callUs: "Whatsapp",
       visitUs: "Visit us",
       remoteFirst: "Remote-first, worldwide",
       emailLabel: "Email address",

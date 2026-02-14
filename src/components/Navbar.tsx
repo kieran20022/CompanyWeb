@@ -50,7 +50,7 @@ export default function Navbar() {
             to="/"
             className="font-display text-xl font-bold tracking-tight"
           >
-            Bright<span className="text-gradient">Web</span>
+            Bliksem<span className="text-gradient">IT</span>
           </Link>
 
           {/* Desktop links */}

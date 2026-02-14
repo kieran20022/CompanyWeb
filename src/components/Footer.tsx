@@ -35,7 +35,7 @@ export default function Footer() {
               to="/"
               className="font-display text-xl font-bold tracking-tight"
             >
-              Bright<span className="text-gradient">Web</span>
+              Bliksem<span className="text-gradient">IT</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-text-muted)]">
               {t("footer.description")}
@@ -84,7 +84,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[var(--color-border)] pt-8 md:flex-row">
           <p className="text-xs text-[var(--color-text-muted)]">
-            &copy; {new Date().getFullYear()} BrightWeb. {t("footer.copyright")}
+            &copy; {new Date().getFullYear()} BliksemIT. {t("footer.copyright")}
           </p>
           <div className="flex gap-6">
             {["Twitter", "LinkedIn", "Instagram"].map((social) => (
