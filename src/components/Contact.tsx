@@ -7,7 +7,7 @@ import {
   CheckCircle,
   Mail,
   Phone,
-  MapPin,
+  // MapPin,
 } from "lucide-react";
 import FadeIn from "./FadeIn";
 import { useLanguage } from "../i18n/LanguageContext";
