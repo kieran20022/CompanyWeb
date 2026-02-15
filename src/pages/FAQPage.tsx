@@ -394,6 +394,7 @@ export default function FAQPage() {
       {/* FAQ Items */}
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <h2 className="sr-only">{t("faqPage.label")}</h2>
           <div className="space-y-3">
             {faqItems.map((item, i) => (
               <FadeIn key={item.id} delay={i * 0.05}>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import { useHydrated } from "../hooks/useHydrated";
 
 interface FadeInProps {
   children: ReactNode;
@@ -14,6 +15,8 @@ export default function FadeIn({
   direction = "up",
   className = "",
 }: FadeInProps) {
+  const hydrated = useHydrated();
+
   const directionOffset = {
     up: { y: 24 },
     down: { y: -24 },
@@ -24,7 +27,7 @@ export default function FadeIn({
 
   return (
     <motion.div
-      initial={{ opacity: 0, ...directionOffset[direction] }}
+      initial={hydrated ? { opacity: 0, ...directionOffset[direction] } : false}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay, ease: "easeOut" }}

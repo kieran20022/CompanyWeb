@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AnimatedGrid from "./AnimatedGrid";
 import { useLanguage } from "../i18n/LanguageContext";
+import { useHydrated } from "../hooks/useHydrated";
 
 export default function Hero() {
   const { t } = useLanguage();
+  const hydrated = useHydrated();
 
   return (
     <section className="noise-bg relative min-h-screen overflow-hidden bg-[var(--color-midnight)]">
@@ -19,7 +21,7 @@ export default function Hero() {
           <div className="lg:col-span-7">
             <motion.h1
               className="mt-8 font-display text-[clamp(2.5rem,6vw,5rem)] font-800 leading-[0.95] tracking-tight"
-              initial={{ opacity: 0, y: 40 }}
+              initial={hydrated ? { opacity: 0, y: 40 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0, 1] }}
             >
@@ -33,7 +35,7 @@ export default function Hero() {
 
             <motion.p
               className="mt-6 max-w-lg text-lg leading-relaxed text-[var(--color-text-secondary)]"
-              initial={{ opacity: 0, y: 30 }}
+              initial={hydrated ? { opacity: 0, y: 30 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25, ease: [0.25, 0.1, 0, 1] }}
             >
@@ -42,7 +44,7 @@ export default function Hero() {
 
             <motion.div
               className="mt-10 flex flex-wrap items-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
+              initial={hydrated ? { opacity: 0, y: 20 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.1, 0, 1] }}
             >
@@ -72,7 +74,7 @@ export default function Hero() {
           <div className="hidden lg:col-span-5 lg:block">
             <motion.div
               className="relative"
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={hydrated ? { opacity: 0, scale: 0.9 } : false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0, 1] }}
             >
@@ -106,7 +108,7 @@ export default function Hero() {
 
         <motion.div
           className="mt-20 flex justify-center border-t border-[var(--color-border)] pt-10 lg:mt-24"
-          initial={{ opacity: 0, y: 20 }}
+          initial={hydrated ? { opacity: 0, y: 20 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6, ease: [0.25, 0.1, 0, 1] }}
         >

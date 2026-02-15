@@ -39,6 +39,7 @@ export default function PricingPage() {
 
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 className="sr-only">{t("pricingPage.label")}</h2>
           <div className="grid gap-6 lg:grid-cols-3">
             {tiers.map((tier, i) => {
               const highlight = i === 1;

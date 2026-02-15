@@ -1,21 +1,67 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="BliksemIT builds custom, affordable websites for small businesses. From web design and e-commerce to SEO and CRM integrations — get a professional website starting at $300." />
-    <meta name="keywords" content="small business website, custom web design, affordable website, e-commerce, SEO, CRM integration, mobile-first design, web development" />
-    <meta property="og:title" content="BliksemIT — Professional Websites for Small Businesses" />
-    <meta property="og:description" content="Custom-designed, fast, and affordable websites for small businesses. From first sketch to launch day." />
+    <meta name="theme-color" content="#0a0e1a" />
+    <meta name="description" content="BliksemIT bouwt snelle, betaalbare websites op maat voor het MKB. Van webdesign en e-commerce tot SEO en CRM-integraties — professionele websites vanaf €300." />
+    <meta name="keywords" content="website laten maken, webdesign MKB, betaalbare website, e-commerce, SEO, CRM integratie, mobile-first design, webontwikkeling, BliksemIT" />
+    <meta property="og:title" content="BliksemIT — Professionele Websites voor het MKB" />
+    <meta property="og:description" content="Websites op maat, snel en betaalbaar voor het MKB. Van eerste schets tot lanceringdag." />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:url" content="https://bliksemit.nl/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BliksemIT — Professional Websites for Small Businesses" />
-    <meta name="twitter:description" content="Custom-designed, fast, and affordable websites for small businesses. From first sketch to launch day." />
-    <title>Bliksem IT</title>
+    <meta name="twitter:title" content="BliksemIT — Professionele Websites voor het MKB" />
+    <meta name="twitter:description" content="Websites op maat, snel en betaalbaar voor het MKB. Van eerste schets tot lanceringdag." />
+    <link rel="canonical" href="https://bliksemit.nl/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" />
+    <title>BliksemIT — Professionele Websites voor het MKB</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "BliksemIT",
+      "url": "https://bliksemit.nl",
+      "email": "info@bliksemit.nl",
+      "description": "BliksemIT bouwt snelle, betaalbare websites op maat voor het MKB.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "NL"
+      },
+      "serviceType": [
+        "Web Design",
+        "E-Commerce",
+        "SEO Optimalisatie",
+        "Mobile-First Design",
+        "CRM Integratie",
+        "Website Onderhoud"
+      ]
+    }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root"><!--ssr-outlet--></div>
+    <script type="module" src="/src/entry-client.tsx"></script>
+    <noscript>
+      <div style="background:#0a0e1a;color:#f1f5f9;font-family:system-ui,sans-serif;padding:2rem;max-width:800px;margin:0 auto;">
+        <h1 style="font-size:2rem;margin-bottom:1rem;">BliksemIT</h1>
+        <p style="color:#94a3b8;margin-bottom:1.5rem;">Professionele websites op maat voor het MKB. Snel, betaalbaar en gebouwd om te converteren.</p>
+        <h2 style="font-size:1.25rem;margin-bottom:0.75rem;">Onze Diensten</h2>
+        <ul style="color:#94a3b8;list-style:disc;padding-left:1.5rem;margin-bottom:1.5rem;">
+          <li>Website Design op Maat</li>
+          <li>E-Commerce &amp; Webshops</li>
+          <li>SEO Optimalisatie</li>
+          <li>Mobile-First Design</li>
+          <li>CRM Integraties</li>
+          <li>Website Onderhoud</li>
+        </ul>
+        <h2 style="font-size:1.25rem;margin-bottom:0.75rem;">Contact</h2>
+        <p style="color:#94a3b8;">E-mail: <a href="mailto:info@bliksemit.nl" style="color:#f59e0b;">info@bliksemit.nl</a></p>
+      </div>
+    </noscript>
   </body>
 </html>

@@ -29,6 +29,7 @@ function getNestedValue(obj: Record<string, unknown>, path: string): string {
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Language>(() => {
+    if (typeof window === "undefined") return "nl";
     const stored = localStorage.getItem("brightweb-lang");
     return (stored === "en" || stored === "nl") ? stored : "nl";
   });

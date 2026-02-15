@@ -176,6 +176,7 @@ export default function Particles({
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       className={`pointer-events-auto absolute inset-0 ${className}`}
     />
   );
