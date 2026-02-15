@@ -5,6 +5,31 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../i18n/LanguageContext";
 import type { Language } from "../i18n/LanguageContext";
 
+function LightningLogo({ className = "" }: { className?: string }) {
+  return (
+    <motion.svg
+      viewBox="0 0 24 24"
+      fill="none"
+      className={className}
+      animate={{
+        filter: [
+          "drop-shadow(0 0 2px var(--color-amber))",
+          "drop-shadow(0 0 8px var(--color-amber))",
+          "drop-shadow(0 0 2px var(--color-amber))",
+        ],
+      }}
+      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <path
+        d="M13 2L4.5 13.5H12L11 22L19.5 10.5H12L13 2Z"
+        fill="var(--color-amber)"
+        stroke="var(--color-amber-light)"
+        strokeWidth="0.5"
+      />
+    </motion.svg>
+  );
+}
+
 const flags: Record<Language, { emoji: string; label: string }> = {
   nl: { emoji: "🇳🇱", label: "Nederlands" },
   en: { emoji: "🇬🇧", label: "English" },
@@ -48,8 +73,9 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <Link
             to="/"
-            className="font-display text-xl font-bold tracking-tight"
+            className="flex items-center gap-2 font-display text-xl font-bold tracking-tight"
           >
+            <LightningLogo className="h-7 w-7" />
             Bliksem<span className="text-gradient">IT</span>
           </Link>
 
