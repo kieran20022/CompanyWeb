@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.resolve(__dirname, "dist");
 
 const routes = [
-  { url: "/", title: "BliksemIT — Professionele Websites voor het MKB", description: "BliksemIT bouwt snelle, betaalbare websites op maat voor het MKB. Van webdesign en e-commerce tot SEO en CRM-integraties.", canonical: "https://bliksemit.nl/" },
+  { url: "/", title: "BliksemIT — Professionele Websites voor het MKB", description: "BliksemIT bouwt snelle, betaalbare websites op maat voor het MKB. Gevestigd in Rotterdam, met een focus op bedrijven in de regio Rotterdam. Van webdesign en e-commerce tot SEO, CRM-integraties en meer.", canonical: "https://bliksemit.nl/" },
   { url: "/services", title: "Diensten — BliksemIT", description: "Webdesign, e-commerce, SEO, mobile-first design, CRM-integraties en website onderhoud. Ontdek wat BliksemIT voor jouw bedrijf kan doen.", canonical: "https://bliksemit.nl/services" },
   { url: "/pricing", title: "Prijzen — BliksemIT", description: "Betaalbare website pakketten voor het MKB. Transparante prijzen, geen verborgen kosten. Vanaf €300.", canonical: "https://bliksemit.nl/pricing" },
   { url: "/about", title: "Over Ons — BliksemIT", description: "Leer het team achter BliksemIT kennen. Wij bouwen websites die werken voor het MKB.", canonical: "https://bliksemit.nl/about" },
