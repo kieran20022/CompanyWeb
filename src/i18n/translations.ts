@@ -725,6 +725,8 @@ export const translations = {
       messageHint: "Vertel ons over je bedrijf en het type website dat je nodig hebt.",
       messagePlaceholder: "Beschrijf je project...",
       sendMessage: "Bericht Versturen",
+      sending: "Versturen...",
+      errorMessage: "Er is iets misgegaan. Probeer het opnieuw.",
       successHeading: "Bericht verzonden!",
       successDescription:
         "Bedankt voor je bericht. We bekijken het en nemen binnen 24 uur contact met je op.",
@@ -1458,6 +1460,8 @@ export const translations = {
       messageHint: "Tell us about your business and the kind of website you need.",
       messagePlaceholder: "Describe your project...",
       sendMessage: "Send Message",
+      sending: "Sending...",
+      errorMessage: "Something went wrong. Please try again.",
       successHeading: "Message sent!",
       successDescription:
         "Thanks for reaching out. We'll review your message and get back to you within 24 hours.",

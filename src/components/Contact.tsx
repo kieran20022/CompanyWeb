@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 import {
   ArrowLeft,
   Send,
@@ -8,12 +9,21 @@ import {
   Mail,
   Phone,
   // MapPin,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
 import FadeIn from "./FadeIn";
 import { useLanguage } from "../i18n/LanguageContext";
 
+const EMAILJS_SERVICE_ID = "service_mw77jh4";
+const EMAILJS_TEMPLATE_ID = "template_venhamh";
+const EMAILJS_PUBLIC_KEY = "HpQD7KYZKQoOhVJMm";
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const { t } = useLanguage();
 
   const contactInfo = [
@@ -23,17 +33,36 @@ export default function Contact() {
 
   const contactMethods = [
     { value: "", label: t("contact.selectMethod") },
-    { value: "email", label: t("contact.email") },
-    { value: "phone", label: t("contact.phone") },
-    { value: "in-person", label: t("contact.inPerson") },
+    { value: "Contact by Email", label: t("contact.email") },
+    { value: "Contact by Phone", label: t("contact.phone") },
+    { value: "Contact in-person", label: t("contact.inPerson") },
   ];
 
   const inputClasses =
     "mt-1.5 block w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] transition-all duration-200 focus:border-[var(--color-amber)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--color-amber)]/10";
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    if (!formRef.current) return;
+
+    setSending(true);
+    setError(null);
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY,
+      );
+      setSubmitted(true);
+    } catch {
+      setError(
+        t("contact.errorMessage") ?? "Something went wrong. Please try again.",
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -113,6 +142,7 @@ export default function Contact() {
             ) : (
               <FadeIn>
                 <form
+                  ref={formRef}
                   onSubmit={handleSubmit}
                   className="space-y-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 md:p-10"
                 >
@@ -220,15 +250,29 @@ export default function Contact() {
                     />
                   </div>
 
+                  {error && (
+                    <div className="flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/5 px-4 py-3 text-sm text-red-400">
+                      <AlertCircle size={16} className="flex-shrink-0" />
+                      {error}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="group inline-flex items-center gap-2 rounded-full bg-[var(--color-amber)] px-7 py-3.5 text-sm font-bold text-[var(--color-midnight)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(245,158,11,0.25)]"
+                    disabled={sending}
+                    className="group inline-flex items-center gap-2 rounded-full bg-[var(--color-amber)] px-7 py-3.5 text-sm font-bold text-[var(--color-midnight)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(245,158,11,0.25)] disabled:opacity-60 disabled:hover:scale-100"
                   >
-                    {t("contact.sendMessage")}
-                    <Send
-                      size={15}
-                      className="transition-transform duration-300 group-hover:translate-x-0.5"
-                    />
+                    {sending
+                      ? (t("contact.sending") ?? "Sending...")
+                      : t("contact.sendMessage")}
+                    {sending ? (
+                      <Loader2 size={15} className="animate-spin" />
+                    ) : (
+                      <Send
+                        size={15}
+                        className="transition-transform duration-300 group-hover:translate-x-0.5"
+                      />
+                    )}
                   </button>
                 </form>
               </FadeIn>
