@@ -155,6 +155,42 @@ export const translations = {
       copyright: "Alle rechten voorbehouden.",
     },
 
+    // ── Privacy Page ──
+    privacyPage: {
+      heading: "Privacybeleid",
+      lastUpdated: "Laatst bijgewerkt: 20 februari 2026",
+      sections: [
+        {
+          title: "1. Inleiding",
+          body: "BliksemIT respecteert uw privacy en zet zich in voor de bescherming van uw persoonsgegevens. Dit privacybeleid legt uit welke gegevens wij verzamelen, hoe wij deze gebruiken en welke rechten u heeft.",
+        },
+        {
+          title: "2. Welke gegevens verzamelen wij",
+          body: "Wij verzamelen uitsluitend gegevens die u vrijwillig aan ons verstrekt via het contactformulier op onze website: e-mailadres, telefoonnummer, bedrijfsnaam, voorkeursmethode voor contact en uw bericht. Wij gebruiken geen cookies, tracking of analytics op deze website.",
+        },
+        {
+          title: "3. Hoe wij uw gegevens gebruiken",
+          body: "De gegevens die u via het contactformulier verstrekt, worden uitsluitend gebruikt om uw aanvraag te behandelen en contact met u op te nemen over uw project. Wij delen uw gegevens niet met derden.",
+        },
+        {
+          title: "4. E-maildienst",
+          body: "Ons contactformulier maakt gebruik van EmailJS om uw berichten af te leveren. EmailJS verwerkt uw gegevens uitsluitend ten behoeve van de bezorging van uw bericht. Raadpleeg het privacybeleid van EmailJS voor meer informatie.",
+        },
+        {
+          title: "5. Gegevensopslag",
+          body: "Wij slaan uw contactgegevens op in onze e-mailinbox zolang als nodig is om uw aanvraag te behandelen. Wij bewaren geen persoonsgegevens in databases of externe systemen.",
+        },
+        {
+          title: "6. Uw rechten",
+          body: "Op grond van de AVG heeft u het recht om uw persoonsgegevens in te zien, te corrigeren of te laten verwijderen. U kunt hiervoor contact met ons opnemen via kieran@bliksemit.nl.",
+        },
+        {
+          title: "7. Contact",
+          body: "Heeft u vragen over dit privacybeleid? Neem dan contact met ons op via kieran@bliksemit.nl of bel 06 - 48 65 18 09.",
+        },
+      ],
+    },
+
     // ── Services Page ──
     servicesPage: {
       label: "Onze Diensten",
@@ -888,6 +924,42 @@ export const translations = {
       privacyPolicy: "Privacy Policy",
       termsOfService: "Terms of Service",
       copyright: "All rights reserved.",
+    },
+
+    // ── Privacy Page ──
+    privacyPage: {
+      heading: "Privacy Policy",
+      lastUpdated: "Last updated: February 20, 2026",
+      sections: [
+        {
+          title: "1. Introduction",
+          body: "BliksemIT respects your privacy and is committed to protecting your personal data. This privacy policy explains what data we collect, how we use it, and what rights you have.",
+        },
+        {
+          title: "2. What data we collect",
+          body: "We only collect data that you voluntarily provide through the contact form on our website: email address, phone number, company name, preferred contact method, and your message. We do not use cookies, tracking, or analytics on this website.",
+        },
+        {
+          title: "3. How we use your data",
+          body: "The data you provide through the contact form is used solely to process your inquiry and contact you about your project. We do not share your data with third parties.",
+        },
+        {
+          title: "4. Email service",
+          body: "Our contact form uses EmailJS to deliver your messages. EmailJS processes your data solely for the purpose of delivering your message. Please refer to EmailJS's privacy policy for more information.",
+        },
+        {
+          title: "5. Data storage",
+          body: "We store your contact details in our email inbox for as long as necessary to handle your inquiry. We do not store personal data in databases or external systems.",
+        },
+        {
+          title: "6. Your rights",
+          body: "Under the GDPR, you have the right to access, correct, or delete your personal data. You can contact us at kieran@bliksemit.nl to exercise these rights.",
+        },
+        {
+          title: "7. Contact",
+          body: "If you have questions about this privacy policy, please contact us at kieran@bliksemit.nl or call 06 - 48 65 18 09.",
+        },
+      ],
     },
 
     // ── Services Page ──

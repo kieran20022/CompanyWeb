@@ -21,7 +21,7 @@ export default function Footer() {
     [t("footer.resourcesHeading")]: [
       { label: t("footer.pricingLink"), href: "/pricing" },
       { label: t("footer.howItWorks"), href: "/#how-it-works" },
-      { label: t("footer.privacyPolicy"), href: "#" },
+      { label: t("footer.privacyPolicy"), href: "/privacy" },
       { label: t("footer.termsOfService"), href: "#" },
     ],
   };
@@ -82,21 +82,10 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[var(--color-border)] pt-8 md:flex-row">
-          <p className="text-xs text-[var(--color-text-muted)]">
+        <div className="mt-12 border-t border-[var(--color-border)] pt-8">
+          <p className="text-center text-xs text-[var(--color-text-muted)]">
             &copy; {new Date().getFullYear()} BliksemIT. {t("footer.copyright")}
           </p>
-          <div className="flex gap-6">
-            {["Twitter", "LinkedIn", "Instagram"].map((social) => (
-              <a
-                key={social}
-                href="#"
-                className="text-xs text-[var(--color-text-muted)] transition-colors duration-200 hover:text-[var(--color-amber)]"
-              >
-                {social}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

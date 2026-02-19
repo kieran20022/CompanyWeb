@@ -13,6 +13,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import FadeIn from "./FadeIn";
+import AnimatedGrid from "./AnimatedGrid";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const EMAILJS_SERVICE_ID = "service_mw77jh4";
@@ -68,6 +69,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-[var(--color-midnight)]">
       <div className="noise-bg relative border-b border-[var(--color-border)] bg-[var(--color-surface)] pb-12 pt-32 md:pb-16 md:pt-36">
+        <AnimatedGrid />
         <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8">
           <Link
             to="/"

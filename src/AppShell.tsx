@@ -9,6 +9,7 @@ import PricingPage from "./pages/PricingPage";
 import AboutPage from "./pages/AboutPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import FAQPage from "./pages/FAQPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import ScrollToTop from "./components/ScrollToTop";
 
 export default function AppShell() {
@@ -25,6 +26,7 @@ export default function AppShell() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
         <Footer />
       </div>

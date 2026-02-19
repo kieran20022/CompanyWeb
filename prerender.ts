@@ -13,6 +13,7 @@ const routes = [
   { url: "/portfolio", title: "Portfolio — BliksemIT", description: "Bekijk onze recente projecten. Websites op maat voor diverse branches en bedrijven.", canonical: "https://bliksemit.nl/portfolio" },
   { url: "/faq", title: "Veelgestelde Vragen — BliksemIT", description: "Antwoorden op veelgestelde vragen over webdesign, prijzen, proces en samenwerking met BliksemIT.", canonical: "https://bliksemit.nl/faq" },
   { url: "/contact", title: "Contact — BliksemIT", description: "Neem contact op met BliksemIT voor een gratis gesprek over jouw website project.", canonical: "https://bliksemit.nl/contact" },
+  { url: "/privacy", title: "Privacybeleid — BliksemIT", description: "Lees hoe BliksemIT omgaat met uw persoonsgegevens. Wij verzamelen alleen wat nodig is en delen niets met derden.", canonical: "https://bliksemit.nl/privacy" },
 ];
 
 // FAQ data for JSON-LD on the FAQ page
