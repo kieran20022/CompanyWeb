@@ -431,6 +431,15 @@ export const translations = {
       headingSuffix: " opleveren",
       description:
         "Elk project vertelt een verhaal. Hier zijn enkele bedrijven die wij hebben geholpen met het opbouwen van een krachtige online aanwezigheid.",
+      exampleNotice:
+        "We zijn nog volop bezig met het aantrekken van onze eerste klanten. Hieronder zie je een voorbeeldwebsite die laat zien hoe een site eruit kan zien die wij bouwen — geen echte klant, maar een live demonstratie van onze kwaliteit.",
+      exampleBadge: "Voorbeeldproject",
+      exampleTitle: "BliksemIT Voorbeeld",
+      exampleCategory: "Demo",
+      exampleDescription:
+        "Een live demonstratiewebsite die toont hoe een professionele zakelijke website eruit ziet die wij bouwen — inclusief custom design, mobile-first layout en geoptimaliseerde kopij.",
+      exampleVisit: "Bekijk live voorbeeld",
+      fictitiousLabel: "Voorbeeldprojecten ter illustratie",
       testimonial:
         "\"BliksemIT heeft onze verouderde website omgetoverd tot een ",
       testimonialHighlight: "lead-genererende machine",
@@ -1202,6 +1211,15 @@ export const translations = {
       headingSuffix: "",
       description:
         "Every project tells a story. Here are some of the businesses we've helped establish a powerful online presence and grow.",
+      exampleNotice:
+        "We're still building our client base. Below you'll find an example website that shows what a site we build looks like — not a real client, but a live demonstration of our quality.",
+      exampleBadge: "Example Project",
+      exampleTitle: "BliksemIT Example",
+      exampleCategory: "Demo",
+      exampleDescription:
+        "A live demo website showing what a professional business site we build looks like — including custom design, mobile-first layout, and optimized copy.",
+      exampleVisit: "View live example",
+      fictitiousLabel: "Illustrative example projects",
       testimonial:
         "\"BliksemIT turned our outdated website into a ",
       testimonialHighlight: "lead-generating machine",

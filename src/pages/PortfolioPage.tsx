@@ -1,23 +1,12 @@
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import FadeIn from "../components/FadeIn";
 import AnimatedGrid from "../components/AnimatedGrid";
 import { useLanguage } from "../i18n/LanguageContext";
-import { translations } from "../i18n/translations";
-
-const colors = [
-  "from-orange-500/10 to-red-500/10",
-  "from-blue-500/10 to-indigo-500/10",
-  "from-green-500/10 to-emerald-500/10",
-  "from-emerald-500/10 to-teal-500/10",
-  "from-violet-500/10 to-purple-500/10",
-  "from-cyan-500/10 to-blue-500/10",
-];
 
 export default function PortfolioPage() {
-  const { lang, t } = useLanguage();
-  const projects = translations[lang].portfolioPage.projects;
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-[var(--color-midnight)]">
@@ -47,75 +36,61 @@ export default function PortfolioPage() {
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="sr-only">{t("portfolioPage.label")}</h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, i) => (
-              <FadeIn key={project.title} delay={i * 0.08}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] transition-all duration-500 hover:border-[var(--color-amber)]/15">
-                  <div
-                    className={`relative h-48 bg-gradient-to-br ${colors[i]} flex items-center justify-center`}
-                  >
-                    <div className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm">
-                      <span className="font-display text-sm font-bold text-white/60">
-                        {project.title}
-                      </span>
-                    </div>
-                    <div className="absolute right-4 top-4">
-                      <span className="rounded-full bg-black/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white/70 backdrop-blur-sm">
-                        {project.category}
-                      </span>
-                    </div>
-                  </div>
 
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="font-display text-lg font-bold">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-text-muted)]">
-                      {project.description}
-                    </p>
-
-                    <div className="mt-4 rounded-lg bg-[var(--color-amber-glow)] px-3 py-2">
-                      <p className="text-xs font-semibold text-[var(--color-amber)]">
-                        {project.result}
-                      </p>
-                    </div>
-
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {project.services.map((s) => (
-                        <span
-                          key={s}
-                          className="rounded-full border border-[var(--color-border)] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-[var(--color-text-muted)]"
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-[var(--color-border)] bg-[var(--color-surface)] py-20 md:py-24">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+          {/* Notice banner */}
           <FadeIn>
-            <blockquote>
-              <p className="font-display text-2xl font-bold leading-relaxed tracking-tight sm:text-3xl">
-                {t("portfolioPage.testimonial")}
-                <span className="text-gradient">{t("portfolioPage.testimonialHighlight")}</span>
-                {t("portfolioPage.testimonialEnd")}
+            <div className="mb-12 flex items-start gap-3 rounded-xl border border-[var(--color-amber)]/25 bg-[var(--color-amber-glow)] px-5 py-4">
+              <Info size={16} className="mt-0.5 shrink-0 text-[var(--color-amber)]" />
+              <p className="text-sm leading-relaxed text-[var(--color-text-secondary)]">
+                {t("portfolioPage.exampleNotice")}
               </p>
-              <footer className="mt-6">
-                <p className="font-semibold text-[var(--color-text-primary)]">
-                  {t("portfolioPage.testimonialAuthor")}
+            </div>
+          </FadeIn>
+
+          {/* Live example card */}
+          <FadeIn delay={0.05}>
+            <a
+              href="https://example-one.bliksemit.nl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--color-amber)]/30 bg-[var(--color-surface)] transition-all duration-500 hover:border-[var(--color-amber)]/60 hover:shadow-[0_0_40px_rgba(245,158,11,0.08)] md:flex-row"
+            >
+              {/* Screenshot preview */}
+              <div className="relative min-h-56 overflow-hidden bg-[var(--color-midnight)] md:w-1/2 md:min-h-0">
+                <img
+                  src="/preview-example-one.jpg"
+                  alt="BliksemIT example website preview"
+                  className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--color-surface)]/10 pointer-events-none" />
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-1 flex-col justify-center p-8">
+                <div className="flex items-center gap-2">
+                  <span className="rounded-full bg-[var(--color-amber)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--color-midnight)]">
+                    {t("portfolioPage.exampleBadge")}
+                  </span>
+                  <span className="rounded-full border border-[var(--color-border)] px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
+                    {t("portfolioPage.exampleCategory")}
+                  </span>
+                </div>
+                <h3 className="mt-4 font-display text-2xl font-bold">
+                  {t("portfolioPage.exampleTitle")}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
+                  {t("portfolioPage.exampleDescription")}
                 </p>
-                <p className="text-sm text-[var(--color-text-muted)]">
-                  {t("portfolioPage.testimonialRole")}
-                </p>
-              </footer>
-            </blockquote>
+                <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-amber)]">
+                  {t("portfolioPage.exampleVisit")}
+                  <ArrowUpRight
+                    size={15}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </div>
+              </div>
+            </a>
           </FadeIn>
         </div>
       </section>
